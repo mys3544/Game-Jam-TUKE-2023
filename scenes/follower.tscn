@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwcvw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8e4v"]
-radius = 34.0
+radius = 102.0
 
 [node name="follower" type="CharacterBody2D"]
 script = ExtResource("1_dni5m")
