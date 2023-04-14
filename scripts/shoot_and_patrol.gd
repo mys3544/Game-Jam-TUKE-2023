@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var speed = 75
-var shot_dir = Vector2.ZERO
 var target = null
 const bullet_obj = preload("res://scenes/enemy_bullet.tscn")
 const cooldown = 120
@@ -48,8 +47,7 @@ func shoot():
 	# set starting position
 	bullet.position = position + (position.direction_to(target.get_global_position()) * 30)
 	# set direction
-	shot_dir = target.get_global_position() - bullet.position
-	bullet.velocity = shot_dir
+	bullet.look_at(target.get_global_position())
 
 func change_dir():
 	velocity = Vector2(speed, 0).rotated(randf() * 2.0 * PI)
