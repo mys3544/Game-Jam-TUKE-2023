@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="1_nd2t3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qwid"]
-size = Vector2(256, 256)
+size = Vector2(26, 26)
 
 [node name="player" type="Node2D"]
 
@@ -16,7 +16,6 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_nd2t3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_3qwid")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
