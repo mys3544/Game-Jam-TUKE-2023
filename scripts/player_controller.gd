@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 var direction : Vector2 = Vector2()
-
+@export var projectile: PackedScene
+@onready var spawn_point: Marker2D = $SpawnPoint
 func read_input():
 	velocity = Vector2.ZERO
 	
@@ -25,5 +26,13 @@ func read_input():
 	velocity = velocity.normalized()*400
 	move_and_slide()
 
+func shoot() -> void:
+	print("BANG")
+	var instance: Projectile = projectile.instantiate()
+	owner.add_child(instance)
+	instance.global_transform = spawn_point.global_transform
+	
 func _physics_process(delta):
 	read_input()
+	look_at(get_global_mouse_position())
+	if Input.is_action_pressed("Shoot"): shoot()	
