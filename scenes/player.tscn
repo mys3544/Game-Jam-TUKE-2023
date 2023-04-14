@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dstmmdvdhc2b7"]
+[gd_scene load_steps=6 format=3 uid="uid://dstmmdvdhc2b7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_b0k72"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_htm5q"]
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="1_nd2t3"]
-[ext_resource type="PackedScene" path="res://scenes/hostiles/projectile.tscn" id="3_g5k1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qwid"]
 size = Vector2(256, 256)
@@ -16,7 +15,6 @@ script = ExtResource("1_b0k72")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
 script = ExtResource("1_htm5q")
-projectile = ExtResource("3_g5k1d")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)

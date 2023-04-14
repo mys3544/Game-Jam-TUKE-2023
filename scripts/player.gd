@@ -1,18 +1,13 @@
 extends Node
 
-var health = 3
+const Health = preload("res://scripts/health.gd")
+var player_hp = null
 
-func take_damage():
-	health -= 1
-	print(health)
-	
-func heal():
-	if health < 3:
-		health += 1
-		print(health)
+func _ready():
+	player_hp = Health.new()
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("potion"):
-		heal()
+		player_hp.add_hp()
 	elif area.is_in_group("hostile"):
-		take_damage()
+		player_hp.sub_hp()
