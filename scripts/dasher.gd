@@ -12,28 +12,26 @@ var d_duration = 30
 var dashing = false
 
 func _physics_process(delta):
-	# reset direction
-	direction = Vector2.ZERO
-	# if player is spotted
-	if to_follow:
-		# not dashing and on cooldown
-		if d_timer > 0 and !dashing:
+	if !dashing:
+		# reset direction
+		direction = Vector2.ZERO
+		# if player is spotted
+		if to_follow:
 			# set new direction
-			direction = position.direction_to(to_follow.get_global_position()) * speed
-		# finished dashing
-		elif d_timer < 0 and dashing:
-			dashing = false
-			d_timer = d_cooldown
-			speed = r_speed
-		# start dashing
-		else:
-			speed = d_speed
-			dashing = true
-			d_timer = d_duration
-	d_timer -= 1
+			direction = position.direction_to(to_follow.get_global_position())
+			# dash if able
+			if d_timer < 0:
+				speed = d_speed
+				d_timer = d_duration
+				dashing = true
+	elif d_timer < 0:
+		d_timer = d_cooldown
+		speed = r_speed
+		dashing = false
 	# move set direction
-	velocity = direction
+	velocity = direction * speed
 	move_and_slide()
+	d_timer -= 1
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):

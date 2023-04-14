@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c65bg2reslj0n"]
+[gd_scene load_steps=13 format=3 uid="uid://dk8volpamdf4j"]
 
 [ext_resource type="Texture2D" uid="uid://dusd3ly4fin12" path="res://assets/trava.png" id="1_x8s7u"]
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="2_x4y51"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cljyxq7ubygio" path="res://scenes/player.tscn" id="3_avlnp"]
 [ext_resource type="PackedScene" uid="uid://cbrrstpkihfle" path="res://scenes/follower.tscn" id="4_w6dit"]
 [ext_resource type="PackedScene" uid="uid://ch6yv8evollll" path="res://scenes/shooter.tscn" id="5_64s88"]
-[ext_resource type="PackedScene" uid="uid://crhxiv2jftfmn" path="res://scenes/trap.tscn" id="6_h2kpc"]
+[ext_resource type="PackedScene" uid="uid://jc83qjt7l6w" path="res://scenes/trap.tscn" id="6_h2kpc"]
+[ext_resource type="PackedScene" uid="uid://dt341vfhypg46" path="res://scenes/dasher.tscn" id="8_iob0h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvg13"]
 texture = ExtResource("1_x8s7u")
@@ -628,3 +629,6 @@ position = Vector2(295, -308)
 
 [node name="shooter" parent="." instance=ExtResource("5_64s88")]
 position = Vector2(-208, -325)
+
+[node name="dasher" parent="." instance=ExtResource("8_iob0h")]
+position = Vector2(319, 29)
