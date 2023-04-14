@@ -1,19 +1,18 @@
 extends Node
 
-var health = 100
-var mana = 0
+var health = 3
 
 func take_damage():
-	health -= 10
+	health -= 1
 	print(health)
+	
+func heal():
+	if health < 3:
+		health += 1
+		print(health)
 
-func use_mana(amount):
-	mana -= amount
-	print(mana)
-
-var _timer = null
-
-func _on_Timer_timeout():
-	if mana < 50:
-		print(mana)
-		mana += 1
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("potion"):
+		heal()
+	elif area.is_in_group("trap"):
+		take_damage()
