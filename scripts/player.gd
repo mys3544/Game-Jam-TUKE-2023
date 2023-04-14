@@ -14,5 +14,5 @@ func heal():
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("potion"):
 		heal()
-	elif area.is_in_group("trap"):
+	elif area.is_in_group("hostile"):
 		take_damage()
