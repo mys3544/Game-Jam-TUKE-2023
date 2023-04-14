@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 75
 var target = null
-const bullet_obj = preload("res://scenes/enemy_bullet.tscn")
+const bullet_obj = preload("res://scenes/hostiles/enemy_bullet.tscn")
 const cooldown = 120
 var timer = cooldown
 var m_cooldown = 60
