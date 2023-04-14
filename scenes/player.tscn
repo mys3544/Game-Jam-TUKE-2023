@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cljyxq7ubygio"]
+[gd_scene load_steps=6 format=3 uid="uid://cljyxq7ubygio"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_b0k72"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_htm5q"]
@@ -25,5 +25,5 @@ shape = SubResource("RectangleShape2D_3qwid")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
-[node name="Marker2D" type="Marker2D" parent="CharacterBody2D"]
-position = Vector2(18, 0)
+[node name="SpawnPoint" type="Marker2D" parent="CharacterBody2D"]
+position = Vector2(21, 0)
