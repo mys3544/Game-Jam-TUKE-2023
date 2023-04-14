@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8e4v"]
 radius = 102.0
 
-[node name="follower" type="CharacterBody2D"]
+[node name="follower" type="CharacterBody2D" groups=["hostile"]]
 script = ExtResource("1_dni5m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
