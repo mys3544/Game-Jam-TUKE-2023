@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt341vfhypg46"]
+
+[ext_resource type="Script" path="res://scripts/dasher.gd" id="1_wi8if"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ocjl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s36db"]
+radius = 134.004
+
+[node name="dasher" type="CharacterBody2D"]
+script = ExtResource("1_wi8if")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ocjl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s36db")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

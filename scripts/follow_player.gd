@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 100
+var speed = 150
 var direction = Vector2.ZERO
 var to_follow = null
 
@@ -10,7 +10,7 @@ func _physics_process(delta):
 	# if player is spotted
 	if to_follow:
 		# set new direction
-		direction = position.direction_to(to_follow.position) * speed
+		direction = position.direction_to(to_follow.get_global_position()) * speed
 	# move set direction
 	velocity = direction
 	move_and_slide()

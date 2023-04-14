@@ -46,9 +46,9 @@ func shoot():
 	var bullet = bullet_obj.instantiate()
 	get_parent().add_child(bullet)
 	# set starting position
-	bullet.position = position + (position.direction_to(target.position) * 30)
+	bullet.position = position + (position.direction_to(target.get_global_position()) * 30)
 	# set direction
-	shot_dir = target.position - bullet.position
+	shot_dir = target.get_global_position() - bullet.position
 	bullet.velocity = shot_dir
 
 func change_dir():

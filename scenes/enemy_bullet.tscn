@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://blbg5n27eh78q"]
+[gd_scene load_steps=3 format=3 uid="uid://cu27123n41srh"]
 
-[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_v835q"]
+[ext_resource type="Script" path="res://scripts/enemy_bullet.gd" id="1_3wmer"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qtpxh"]
 radius = 4.12311
 
 [node name="bullet" type="CharacterBody2D"]
-script = ExtResource("1_v835q")
+script = ExtResource("1_3wmer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qtpxh")
