@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igw3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7yyr0"]
-radius = 83.006
+radius = 152.013
 
 [node name="shooter" type="CharacterBody2D"]
 script = ExtResource("1_fqqad")
@@ -19,3 +19,6 @@ shape = SubResource("RectangleShape2D_igw3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_7yyr0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
