@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://drjefq8lae3dm"]
+
+[ext_resource type="Script" path="res://scripts/title.gd" id="1_4y3tb"]
+[ext_resource type="Texture2D" uid="uid://du0x4atxyxjsi" path="res://assets/bed_split.png" id="2_23vm4"]
+[ext_resource type="Texture2D" uid="uid://bsj41ukmyfhqt" path="res://assets/sleep.png" id="3_cq6kf"]
+[ext_resource type="Texture2D" uid="uid://yejbx0lj6lst" path="res://assets/UI/hp_full.png" id="4_btgif"]
+
+[node name="title" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_4y3tb")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = 200.0
+offset_right = 150.0
+offset_bottom = 240.0
+theme_override_font_sizes/font_size = 16
+text = "Go to Sleep"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = -150.0
+offset_top = 250.0
+offset_right = 150.0
+offset_bottom = 290.0
+text = "Leave Bed"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 391)
+texture = ExtResource("2_23vm4")
+hframes = 2
+
+[node name="Sleep" type="Sprite2D" parent="."]
+position = Vector2(0, 378)
+texture = ExtResource("3_cq6kf")
+
+[node name="Camera2D" type="Camera2D" parent="Sleep"]
+position = Vector2(0, -90)
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 391)
+texture = ExtResource("2_23vm4")
+hframes = 2
+frame = 1
+
+[node name="HpFull" type="Sprite2D" parent="."]
+position = Vector2(-17, 332)
+texture = ExtResource("4_btgif")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
