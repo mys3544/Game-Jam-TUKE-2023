@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ccse73kck4h2i" path="res://scenes/items/warm_blanket.tscn" id="17_0u5co"]
 [ext_resource type="PackedScene" uid="uid://ps2lk72108oa" path="res://scenes/hostiles/follower_nm.tscn" id="18_6cdlk"]
 [ext_resource type="PackedScene" uid="uid://orspvk845pnr" path="res://scenes/spawners/follow_spawner.tscn" id="19_t2qt6"]
-[ext_resource type="PackedScene" uid="uid://vn1e8obemt5g" path="res://scenes/bed.tscn" id="20_v254y"]
+[ext_resource type="PackedScene" path="res://scenes/bed.tscn" id="20_v254y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvg13"]
 texture = ExtResource("1_x8s7u")

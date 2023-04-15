@@ -19,6 +19,9 @@ var dashes = 2
 var backing = false
 var slowed = false
 
+@onready var animation = $AnimationPlayer
+var prev_anim = null
+
 func get_cur_speed():
 	return cur_speed
 	
@@ -55,6 +58,11 @@ func _physics_process(delta):
 	velocity = direction * cur_speed
 	move_and_slide()
 	d_timer -= 1
+	# now animation
+	if velocity.x < 0:
+		change_anim("default_left")
+	else:
+		change_anim("default_right")
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
@@ -81,3 +89,9 @@ func _on_area_2d_area_entered(area):
 		
 func die():
 	queue_free()
+
+func change_anim(new):
+	if new != prev_anim:
+		animation.stop()
+		animation.play(new)
+		prev_anim = new
