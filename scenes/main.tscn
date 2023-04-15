@@ -11,13 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://c5k2fah53ndsb" path="res://scenes/power_ups/potion.tscn" id="9_qrlfc"]
 [ext_resource type="PackedScene" uid="uid://qv6spxgyo6qi" path="res://scenes/power_ups/speed_boost.tscn" id="10_710yu"]
 [ext_resource type="PackedScene" uid="uid://draj8h530c30f" path="res://scenes/hostiles/slow_down.tscn" id="11_gmqfm"]
-<<<<<<< Updated upstream
-=======
 [ext_resource type="PackedScene" uid="uid://blgty6j0tgusg" path="res://scenes/items/alarm_clock.tscn" id="12_uw2kl"]
 [ext_resource type="PackedScene" uid="uid://dn2r57jk0ulpc" path="res://scenes/items/melatonin.tscn" id="13_scjd2"]
 [ext_resource type="PackedScene" uid="uid://bo3l16enqulge" path="res://scenes/items/slippers.tscn" id="14_cnenq"]
 [ext_resource type="PackedScene" uid="uid://o2ohww781duu" path="res://scenes/items/coffee.tscn" id="15_6c6pd"]
->>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvg13"]
 texture = ExtResource("1_x8s7u")
