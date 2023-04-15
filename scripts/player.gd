@@ -66,7 +66,7 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("potion"):
 		player_hp.add_hp()
 		health_changed.emit(player_hp.get_health())
-	elif area.is_in_group("trap"):
+	elif area.is_in_group("trap") || area.is_in_group("hostile"):
 		get_hit()
 	elif area.is_in_group("speed_boost") && slow_down_timer < 0.1:
 		speed_boost_start.emit()
