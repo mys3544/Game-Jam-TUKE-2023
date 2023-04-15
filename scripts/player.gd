@@ -49,7 +49,8 @@ func _physics_process(delta):
 
 func die():
 	kill.emit()
-	queue_free()
+	
+	#queue_free()
 
 func get_hit():
 	if !invincible:

@@ -6,8 +6,13 @@ extends ColorRect
 
 
 func _ready():
-	retry_button.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/main.tscn"))
+	retry_button.pressed.connect(restart)
 	quit_button.pressed.connect(get_tree().quit)
+
+func restart():
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	animator.play("Unpause")
+	get_tree().paused = false
 
 func unpause():
 	animator.play("Unpause")
@@ -30,3 +35,4 @@ func _on_character_body_2d_unpause():
 
 func _on_player_kill():
 	animator.play("Pause")
+	get_tree().paused = true
