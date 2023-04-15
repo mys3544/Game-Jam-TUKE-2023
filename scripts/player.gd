@@ -12,6 +12,7 @@ var speed_boost_timer = 0
 var slow_down_timer = 0
 var speed_timer_check = false
 var slow_timer_check = false
+var bed_ready = false
 
 # signals for UI elements
 signal health_changed(current_hp)
@@ -65,7 +66,7 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("potion"):
 		player_hp.add_hp()
 		health_changed.emit(player_hp.get_health())
-	elif area.is_in_group("hostile"):
+	elif area.is_in_group("trap"):
 		get_hit()
 	elif area.is_in_group("speed_boost") && slow_down_timer < 0.1:
 		speed_boost_start.emit()
@@ -73,6 +74,9 @@ func _on_area_2d_area_entered(area):
 	elif area.is_in_group("slow_down") && speed_boost_timer < 0.1:
 		slow_down_start.emit()
 		slow_down_timer += 5
+	elif area.is_in_group("bed") && bed_ready:
+		print(bed_ready)
+		kill.emit()
 
 # character collisions (enemies)
 func _on_area_2d_body_entered(body):
@@ -88,3 +92,6 @@ func i_frames(duration):
 func _on_inventory_melatonin_item():
 	player_hp.set_max_health(player_hp.get_max_health() + 1)
 	health_ready.emit(player_hp.get_health(), player_hp.get_max_health())
+
+func _on_bed_bed_ready():
+	bed_ready = true

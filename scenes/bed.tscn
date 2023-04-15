@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vn1e8obemt5g"]
+
+[ext_resource type="Script" path="res://scenes/bed.gd" id="1_bb401"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rk0v8"]
+size = Vector2(32, 32)
+
+[node name="bed" type="Node2D" groups=["bed"]]
+script = ExtResource("1_bb401")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bed"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_rk0v8")

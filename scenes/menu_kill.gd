@@ -37,7 +37,6 @@ func _on_character_body_2d_unpause():
 	get_tree().paused = false
 	visible = false
 
-
 func _on_player_kill():
 	animator.play("Pause")
 	get_tree().paused = true

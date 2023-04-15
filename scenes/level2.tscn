@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://del6b8ga3oxgl"]
+[gd_scene load_steps=46 format=3 uid="uid://del6b8ga3oxgl"]
 
 [ext_resource type="PackedScene" uid="uid://cvjs25l2ejo8v" path="res://scenes/player.tscn" id="3_xmgyd"]
 [ext_resource type="Texture2D" uid="uid://cvdptm6x6j4cy" path="res://assets/water.png" id="4_ewf4g"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bo3l16enqulge" path="res://scenes/items/slippers.tscn" id="18_2oro3"]
 [ext_resource type="PackedScene" uid="uid://draj8h530c30f" path="res://scenes/hostiles/slow_down.tscn" id="19_vonia"]
 [ext_resource type="PackedScene" uid="uid://dipbc4btmc3y" path="res://scenes/hostiles/dasher_nm.tscn" id="20_ouggv"]
+[ext_resource type="PackedScene" uid="uid://vn1e8obemt5g" path="res://scenes/bed.tscn" id="21_st1qo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qgw5g"]
 texture = ExtResource("11_qf2yt")
@@ -2336,3 +2337,8 @@ position = Vector2(3, 83)
 
 [node name="alarm_clock4" parent="." instance=ExtResource("11_8itx1")]
 position = Vector2(89, -325)
+
+[node name="bed" parent="." instance=ExtResource("21_st1qo")]
+position = Vector2(0, -7)
+
+[connection signal="bed_ready" from="bed" to="player" method="_on_bed_bed_ready"]
