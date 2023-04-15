@@ -3,7 +3,6 @@ extends CharacterBody2D
 var direction : Vector2 = Vector2()
 var velocity_multiplier = 400
 
-
 @export var projectile: PackedScene
 @export var ProjectileCooldown : float
 @export var ProjectilesInMagazine : int
