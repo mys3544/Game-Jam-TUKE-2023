@@ -2332,7 +2332,7 @@ position = Vector2(-94, -328)
 position = Vector2(-42, -273)
 
 [node name="alarm_clock3" parent="." instance=ExtResource("11_8itx1")]
-position = Vector2(48, -272)
+position = Vector2(3, 83)
 
 [node name="alarm_clock4" parent="." instance=ExtResource("11_8itx1")]
 position = Vector2(89, -325)

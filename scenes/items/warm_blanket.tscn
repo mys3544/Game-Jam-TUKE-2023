@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccse73kck4h2i"]
+[gd_scene load_steps=3 format=3 uid="uid://ccse73kck4h2i"]
+
+[ext_resource type="Script" path="res://scenes/items/warm_blanket.gd" id="1_ay720"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_maedm"]
 custom_solver_bias = 1.0
 radius = 16.0
 
 [node name="warm_blanket" type="Area2D" groups=["Item"]]
+script = ExtResource("1_ay720")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["potion"]]
 shape = SubResource("CircleShape2D_maedm")

@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cn8o1uyknv04o"]
+[gd_scene load_steps=4 format=3 uid="uid://cn8o1uyknv04o"]
 
 [ext_resource type="Texture2D" uid="uid://b66mo1modfuwu" path="res://assets/items/pillow.png" id="1_06on4"]
+[ext_resource type="Script" path="res://scenes/items/cold_pillow.gd" id="1_uf7ef"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_maedm"]
 custom_solver_bias = 1.0
 radius = 16.0
 
 [node name="cold_pillow" type="Area2D" groups=["Item"]]
+script = ExtResource("1_uf7ef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["potion"]]
 shape = SubResource("CircleShape2D_maedm")

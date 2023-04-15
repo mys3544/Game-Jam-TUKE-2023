@@ -33,13 +33,14 @@ func set_effect(item):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Item"):
-		if !inventory.has(area):
+		var script = area.get_script()
+		if !inventory.has(script):
 			print("inv")
-			inventory.append(area)
-			item_amount[inventory.find(area)] += 1
+			inventory.append(script)
+			item_amount[inventory.find(script)] += 1
 			set_effect(area)
-		elif inventory.has(area):
-			item_amount[inventory.find(area)] += 1
+		elif inventory.has(script):
+			item_amount[inventory.find(script)] += 1
 			set_effect(area)
 		for n in 6:
 			print(item_amount[n])

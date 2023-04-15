@@ -35,7 +35,7 @@ func _physics_process(delta):
 		speed_boost_timer -= delta
 		speed_timer_check = true
 		pass
-	elif (speed_timer_check) && speed_boost_timer < 0.2:
+	elif (speed_timer_check) && speed_boost_timer < 0.5:
 		speed_boost_stop.emit()
 		speed_timer_check = false
 		pass
@@ -43,7 +43,7 @@ func _physics_process(delta):
 		slow_down_timer -= delta
 		slow_timer_check = true
 		pass
-	elif (slow_timer_check) && slow_down_timer < 0.2:
+	elif (slow_timer_check) && slow_down_timer < 0.5:
 		slow_down_stop.emit()
 		slow_timer_check = false
 		pass
