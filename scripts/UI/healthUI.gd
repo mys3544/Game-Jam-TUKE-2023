@@ -25,7 +25,6 @@ func set_hearts(value):
 func _on_player_health_changed(current_hp):
 	set_hearts(current_hp)
 
-func _on_player_health_ready():
-	parent = get_node("/root/Player")
-	set_max_hearts(parent.player_hp.max_health)
-	set_hearts(parent.player_hp.health)
+func _on_player_health_ready(current_hp, max_hp):
+	set_max_hearts(max_hp)
+	set_hearts(current_hp)
