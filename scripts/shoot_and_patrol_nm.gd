@@ -13,8 +13,11 @@ var m_cooldown = 60
 var m_timer = m_cooldown
 var backing = false
 
+@onready var animation = $AnimationPlayer
+
 func _ready():
 	entity_hp = Health.new()
+	animation.play("front_default")
 
 func _physics_process(delta):
 	if backing:

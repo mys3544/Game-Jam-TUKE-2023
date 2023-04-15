@@ -15,6 +15,8 @@ var m_timer = m_cooldown
 var backing = false
 var slowed = false
 
+@onready var animation = $AnimationPlayer
+
 func get_cur_speed():
 	return cur_speed
 	
@@ -23,6 +25,7 @@ func set_cur_speed(new_cur_speed):
 
 func _ready():
 	entity_hp = Health.new()
+	animation.play("front_default")
 
 func _physics_process(delta):
 	if backing:
