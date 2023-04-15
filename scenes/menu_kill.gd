@@ -6,7 +6,7 @@ extends ColorRect
 
 
 func _ready():
-	retry_button.pressed.connect(get_tree().change_scene_to_file("res://scenes/main.tscn"))
+	#retry_button.pressed.connect(get_tree().change_scene_to_file("res://scenes/main.tscn"))
 	quit_button.pressed.connect(get_tree().quit)
 
 func unpause():
