@@ -13,6 +13,8 @@ var maxProjectilesInMagazine = 10
 @onready var gunShot = $GunShot 
 @onready var ProjectileCooldownNode = $ProjectileCooldownNode
 
+var cold_pillow_check = false
+
 func read_input():
 	velocity = Vector2.ZERO
 	
@@ -43,6 +45,7 @@ func shoot() -> void:
 	var instance: Projectile = projectile.instantiate()
 	owner.add_child(instance)
 	instance.global_transform = spawn_point.global_transform
+	instance.set_cold_pillow_check(cold_pillow_check)
 	ProjectilesInMagazine -= 1
 	if ProjectilesInMagazine < 1:
 		print("Reloading")
@@ -77,3 +80,6 @@ func _on_inventory_slippers_item():
 
 func _on_inventory_coffee_item():
 	ProjectileCooldown -= ProjectileCooldown/100*5
+
+func _on_inventory_cold_pillow_item():
+	cold_pillow_check = true

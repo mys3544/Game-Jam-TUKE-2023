@@ -2,8 +2,20 @@ extends Area2D
 
 class_name Projectile
 
+var speed : float = 25.0 : get = get_speed, set = set_speed
+var cold_pillow_check = false : get = get_cold_pillow_check, set = set_cold_pillow_check
 
-var speed : float = 25.0
+func get_cold_pillow_check():
+	return cold_pillow_check
+
+func set_cold_pillow_check(new):
+	cold_pillow_check = new
+
+func get_speed():
+	return speed
+
+func set_speed(new_speed):
+	speed = new_speed
 
 func _physics_process(delta : float) -> void:
 	position += global_transform.x * speed
@@ -13,7 +25,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	pass # Replace with function body.
 
 func _on_body_entered(body):
-	if body.is_in_group("hostile"):
-		for entity in self.get_overlapping_bodies():
+	for entity in self.get_overlapping_bodies():
+		if entity.is_in_group("hostile"):
 			entity.entity_hp.sub_hp()
-		queue_free()
+			queue_free()
+	
