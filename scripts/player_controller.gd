@@ -16,6 +16,9 @@ var maxProjectilesInMagazine = 10
 var cold_pillow_check = false
 var warm_blanket_check = false
 
+var animation = get_parent().get_node("Marker2D/AnimationPlayer")
+var prev_anim = null
+
 signal pause
 signal unpause
 
@@ -25,7 +28,6 @@ func read_input():
 	if Input.is_action_pressed("Up"):
 		velocity.y -=1
 		direction = Vector2(0, -1)
-		#print("UP")
 
 	if Input.is_action_pressed("Down"):
 		velocity.y +=1
@@ -64,10 +66,11 @@ func shoot() -> void:
 		print("Reloading")
 		ProjectileCooldownNode.start(3)
 		ProjectilesInMagazine = maxProjectilesInMagazine
-	
+
 func _physics_process(delta):
 	read_input()
 	look_at(get_global_mouse_position())
+	
 	if Input.is_action_pressed("Shoot") and ProjectileCooldownNode.is_stopped():
 		shoot()
 

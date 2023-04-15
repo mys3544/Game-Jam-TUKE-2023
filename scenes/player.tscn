@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvjs25l2ejo8v"]
+[gd_scene load_steps=21 format=3 uid="uid://cvjs25l2ejo8v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_b0k72"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_htm5q"]
-[ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="1_nd2t3"]
 [ext_resource type="PackedScene" uid="uid://c3m5djnxbsxcn" path="res://scenes/hostiles/projectile.tscn" id="3_g5k1d"]
 [ext_resource type="Texture2D" uid="uid://yejbx0lj6lst" path="res://assets/UI/hp_full.png" id="5_fqb7j"]
 [ext_resource type="Script" path="res://scripts/UI/healthUI.gd" id="5_nbxeq"]
@@ -12,12 +11,105 @@
 [ext_resource type="Script" path="res://scenes/menu_kill.gd" id="7_ocykq"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="9_o6qfg"]
 [ext_resource type="PackedScene" uid="uid://62r733bn6tgv" path="res://scenes/menu.tscn" id="10_oqc7y"]
+[ext_resource type="Texture2D" uid="uid://cwd1bph7evntp" path="res://assets/walkcycle_dressed.png" id="12_tbupy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qwid"]
-size = Vector2(256, 256)
+[sub_resource type="CircleShape2D" id="CircleShape2D_anibm"]
+radius = 16.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p13oq"]
-size = Vector2(25.5, 25.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytjw6"]
+radius = 17.0294
+
+[sub_resource type="Animation" id="Animation_r7cb3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dv0xi"]
+resource_name = "defaulft_left"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_inwlm"]
+resource_name = "default_back"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_n0rh3"]
+resource_name = "default_front"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [18, 19, 20, 21, 22, 23, 24, 25, 26]
+}
+
+[sub_resource type="Animation" id="Animation_38aaa"]
+resource_name = "default_right"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [27, 28, 29, 30, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wkvv3"]
+_data = {
+"RESET": SubResource("Animation_r7cb3"),
+"defaulft_left": SubResource("Animation_dv0xi"),
+"default_back": SubResource("Animation_inwlm"),
+"default_front": SubResource("Animation_n0rh3"),
+"default_right": SubResource("Animation_38aaa")
+}
 
 [node name="player" type="Node2D"]
 script = ExtResource("1_b0k72")
@@ -28,13 +120,8 @@ projectile = ExtResource("3_g5k1d")
 ProjectileCooldown = 0.5
 ProjectilesInMagazine = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_nd2t3")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-scale = Vector2(0.1, 0.1)
-shape = SubResource("RectangleShape2D_3qwid")
+shape = SubResource("CircleShape2D_anibm")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2, 2)
@@ -45,8 +132,7 @@ position = Vector2(18, 0)
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-scale = Vector2(1.1, 1.1)
-shape = SubResource("RectangleShape2D_p13oq")
+shape = SubResource("CircleShape2D_ytjw6")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
 remote_path = NodePath("../../Marker2D")
@@ -96,6 +182,17 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_o6qfg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(0, -10)
+texture = ExtResource("12_tbupy")
+hframes = 9
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Marker2D"]
+libraries = {
+"": SubResource("AnimationLibrary_wkvv3")
+}
 
 [connection signal="health_changed" from="." to="Marker2D/healthUI" method="_on_player_health_changed"]
 [connection signal="health_ready" from="." to="Marker2D/healthUI" method="_on_player_health_ready"]
