@@ -42,7 +42,10 @@ func shoot() -> void:
 	var instance: Projectile = projectile.instantiate()
 	owner.add_child(instance)
 	instance.global_transform = spawn_point.global_transform
-	
+	ProjectilesInMagazine -= 1
+	if ProjectilesInMagazine < 1:
+		ProjectileCooldownNode.start(3)
+		ProjectilesInMagazine = 10
 	
 func _physics_process(delta):
 	read_input()

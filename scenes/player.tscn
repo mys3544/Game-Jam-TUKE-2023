@@ -22,6 +22,7 @@ script = ExtResource("1_b0k72")
 script = ExtResource("1_htm5q")
 projectile = ExtResource("3_g5k1d")
 ProjectileCooldown = 0.5
+ProjectilesInMagazine = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
