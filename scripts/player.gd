@@ -5,7 +5,7 @@ const Health = preload("res://scripts/health.gd")
 var player_hp = null
 var player_inventory = null
 
-var i_frame_duration = 3
+var i_frame_duration = 1.5
 var invincible = false
 
 var speed_boost_timer = 0
