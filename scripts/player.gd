@@ -2,7 +2,8 @@ extends Node
 
 const Health = preload("res://scripts/health.gd")
 var player_hp = null
-var i_frame_duration = 1.5
+var i_frame_duration = 3
+var invincible = false
 var speed_boost_timer = 0
 var slow_down_timer = 0
 var speed_timer_check = false
@@ -39,8 +40,10 @@ func _physics_process(delta):
 		return
 
 func get_hit():
-	player_hp.sub_hp()
-	health_changed.emit(player_hp.get_health())
+	if !invincible:
+		player_hp.sub_hp()
+		health_changed.emit(player_hp.get_health())
+		i_frames(i_frame_duration)
 	
 # area collisions (pickups/bullets/etc.)
 func _on_area_2d_area_entered(area):
@@ -61,6 +64,7 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("hostile"):
 		get_hit()
 
-func i_frames():
-	get_child(0).get_child(1).disabled = true
-	get_child(0).get_child(4).disabled = true
+func i_frames(duration):
+	invincible = true
+	await get_tree().create_timer(duration).timeout
+	invincible = false

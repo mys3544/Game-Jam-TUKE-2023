@@ -73,8 +73,6 @@ stretch_mode = 1
 
 [connection signal="health_changed" from="." to="Marker2D/healthUI" method="_on_player_health_changed"]
 [connection signal="health_ready" from="." to="Marker2D/healthUI" method="_on_player_health_ready"]
-[connection signal="slow_down_start" from="." to="CharacterBody2D" method="_on_player_slow_down_start"]
-[connection signal="slow_down_stop" from="." to="CharacterBody2D" method="_on_player_slow_down_stop"]
 [connection signal="speed_boost_start" from="." to="CharacterBody2D" method="_on_player_speed_boost_start"]
 [connection signal="speed_boost_stop" from="." to="CharacterBody2D" method="_on_player_speed_boost_stop"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
