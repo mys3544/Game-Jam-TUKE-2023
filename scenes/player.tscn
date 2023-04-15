@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_htm5q"]
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="1_nd2t3"]
 [ext_resource type="PackedScene" path="res://scenes/hostiles/projectile.tscn" id="3_g5k1d"]
-[ext_resource type="Texture2D" uid="uid://lc68g1ojbgk7" path="res://assets/UI/hp_full.png" id="5_fqb7j"]
+[ext_resource type="Texture2D" uid="uid://yejbx0lj6lst" path="res://assets/UI/hp_full.png" id="5_fqb7j"]
 [ext_resource type="Script" path="res://scripts/UI/healthUI.gd" id="5_nbxeq"]
-[ext_resource type="Texture2D" uid="uid://do2eyvlag4r2f" path="res://assets/UI/hp_empty.png" id="6_sorsf"]
+[ext_resource type="Texture2D" uid="uid://cxhrtax8ancf2" path="res://assets/UI/hp_empty.png" id="6_sorsf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qwid"]
 size = Vector2(256, 256)
@@ -30,6 +30,7 @@ scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_3qwid")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(2, 2)
 
 [node name="SpawnPoint" type="Marker2D" parent="CharacterBody2D"]
 position = Vector2(18, 0)
@@ -41,30 +42,36 @@ scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_p13oq")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
-remote_path = NodePath("../..")
+remote_path = NodePath("../../Marker2D")
+update_rotation = false
 
-[node name="healthUI" type="Control" parent="."]
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="healthUI" type="Control" parent="Marker2D"]
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = -556.0
-offset_top = -305.0
-offset_right = -360.0
-offset_bottom = -273.0
+offset_left = -277.0
+offset_top = -151.0
+offset_right = -81.0
+offset_bottom = -119.0
 script = ExtResource("5_nbxeq")
 
-[node name="HeartEmpty" type="TextureRect" parent="healthUI"]
+[node name="HeartEmpty" type="TextureRect" parent="Marker2D/healthUI"]
+layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 texture = ExtResource("6_sorsf")
 stretch_mode = 1
 
-[node name="HeartFull" type="TextureRect" parent="healthUI"]
+[node name="HeartFull" type="TextureRect" parent="Marker2D/healthUI"]
+layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 texture = ExtResource("5_fqb7j")
 stretch_mode = 1
 
-[connection signal="health_changed" from="." to="healthUI" method="_on_player_health_changed"]
-[connection signal="health_ready" from="." to="healthUI" method="_on_player_health_ready"]
+[connection signal="health_changed" from="." to="Marker2D/healthUI" method="_on_player_health_changed"]
+[connection signal="health_ready" from="." to="Marker2D/healthUI" method="_on_player_health_ready"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
