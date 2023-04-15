@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvjs25l2ejo8v"]
+[gd_scene load_steps=11 format=3 uid="uid://cvjs25l2ejo8v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_b0k72"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_htm5q"]
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="1_nd2t3"]
-[ext_resource type="PackedScene" path="res://scenes/hostiles/projectile.tscn" id="3_g5k1d"]
+[ext_resource type="PackedScene" uid="uid://c3m5djnxbsxcn" path="res://scenes/hostiles/projectile.tscn" id="3_g5k1d"]
 [ext_resource type="Texture2D" uid="uid://yejbx0lj6lst" path="res://assets/UI/hp_full.png" id="5_fqb7j"]
 [ext_resource type="Script" path="res://scripts/UI/healthUI.gd" id="5_nbxeq"]
+[ext_resource type="AudioStream" uid="uid://lpqkfulbjus6" path="res://audio/9mm_short.wav" id="5_w6g80"]
 [ext_resource type="Texture2D" uid="uid://cxhrtax8ancf2" path="res://assets/UI/hp_empty.png" id="6_sorsf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qwid"]
@@ -20,6 +21,7 @@ script = ExtResource("1_b0k72")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
 script = ExtResource("1_htm5q")
 projectile = ExtResource("3_g5k1d")
+ProjectileCooldown = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.1, 0.1)
@@ -44,6 +46,13 @@ shape = SubResource("RectangleShape2D_p13oq")
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
 remote_path = NodePath("../../Marker2D")
 update_rotation = false
+
+[node name="GunShot" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("5_w6g80")
+volume_db = -28.087
+
+[node name="ProjectileCooldownNode" type="Timer" parent="CharacterBody2D"]
+one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 

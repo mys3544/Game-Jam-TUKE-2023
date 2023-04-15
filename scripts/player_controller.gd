@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
 var direction : Vector2 = Vector2()
-@export var projectile: PackedScene
-@onready var spawn_point: Marker2D = $SpawnPoint
 var velocity_multiplier = 400
+
+
+@export var projectile: PackedScene
+@export var ProjectileCooldown : float 
+
+@onready var spawn_point: Marker2D = $SpawnPoint
+@onready var gunShot = $GunShot 
+@onready var ProjectileCooldownNode = $ProjectileCooldownNode
 
 func read_input():
 	velocity = Vector2.ZERO
@@ -29,15 +35,19 @@ func read_input():
 	move_and_slide()
 
 func shoot() -> void:
-	print("BANG")
+	#print("BANG")
+	ProjectileCooldownNode.start(ProjectileCooldown)
+	gunShot.play()
 	var instance: Projectile = projectile.instantiate()
 	owner.add_child(instance)
 	instance.global_transform = spawn_point.global_transform
 	
+	
 func _physics_process(delta):
 	read_input()
 	look_at(get_global_mouse_position())
-	if Input.is_action_pressed("Shoot"): shoot()	
+	if Input.is_action_pressed("Shoot") and ProjectileCooldownNode.is_stopped():
+		shoot()
 
 func _on_player_speed_boost_start():
 	velocity_multiplier = 550
