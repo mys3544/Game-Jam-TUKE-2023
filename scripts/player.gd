@@ -27,7 +27,3 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("hostile"):
 		get_hit()
-
-func i_frames():
-	get_child(0).get_child(1).disabled = true
-	get_child(0).get_child(4).disabled = true
