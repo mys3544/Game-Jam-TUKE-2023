@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dt341vfhypg46" path="res://scenes/hostiles/dasher.tscn" id="8_iob0h"]
 [ext_resource type="PackedScene" uid="uid://c5k2fah53ndsb" path="res://scenes/power_ups/potion.tscn" id="9_qrlfc"]
 [ext_resource type="PackedScene" uid="uid://qv6spxgyo6qi" path="res://scenes/power_ups/speed_boost.tscn" id="10_710yu"]
-[ext_resource type="PackedScene" path="res://scenes/hostiles/slow_down.tscn" id="11_gmqfm"]
+[ext_resource type="PackedScene" uid="uid://draj8h530c30f" path="res://scenes/hostiles/slow_down.tscn" id="11_gmqfm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvg13"]
 texture = ExtResource("1_x8s7u")
