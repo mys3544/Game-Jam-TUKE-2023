@@ -1,16 +1,22 @@
 extends Node
 
 const Health = preload("res://scripts/health.gd")
+
 var player_hp = null
+var player_inventory = null
+
 var i_frame_duration = 3
 var invincible = false
+
 var speed_boost_timer = 0
 var slow_down_timer = 0
 var speed_timer_check = false
 var slow_timer_check = false
+
 # signals for UI elements
 signal health_changed(current_hp)
 signal health_ready(current_hp, max_hp)
+
 # signals for power-ups/slow-downs
 signal speed_boost_start()
 signal speed_boost_stop()

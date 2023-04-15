@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvjs25l2ejo8v"]
+[gd_scene load_steps=12 format=3 uid="uid://cvjs25l2ejo8v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_b0k72"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_htm5q"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/UI/healthUI.gd" id="5_nbxeq"]
 [ext_resource type="AudioStream" uid="uid://lpqkfulbjus6" path="res://audio/9mm_short.wav" id="5_w6g80"]
 [ext_resource type="Texture2D" uid="uid://cxhrtax8ancf2" path="res://assets/UI/hp_empty.png" id="6_sorsf"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="9_o6qfg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qwid"]
 size = Vector2(256, 256)
@@ -80,9 +81,19 @@ offset_bottom = 32.0
 texture = ExtResource("5_fqb7j")
 stretch_mode = 1
 
+[node name="Inventory" type="Control" parent="Marker2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_o6qfg")
+
 [connection signal="health_changed" from="." to="Marker2D/healthUI" method="_on_player_health_changed"]
 [connection signal="health_ready" from="." to="Marker2D/healthUI" method="_on_player_health_ready"]
+[connection signal="slow_down_start" from="." to="CharacterBody2D" method="_on_player_slow_down_start"]
+[connection signal="slow_down_stop" from="." to="CharacterBody2D" method="_on_player_slow_down_stop"]
 [connection signal="speed_boost_start" from="." to="CharacterBody2D" method="_on_player_speed_boost_start"]
 [connection signal="speed_boost_stop" from="." to="CharacterBody2D" method="_on_player_speed_boost_stop"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="Marker2D/Inventory" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
