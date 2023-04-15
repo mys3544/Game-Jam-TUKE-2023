@@ -9,10 +9,13 @@ var direction = Vector2.ZERO
 var to_follow = null
 var backing = false
 
+@onready var animation = $AnimationPlayer
+
 func _ready():
 	entity_hp = Health.new()
 	entity_hp.set_max_health(5)
 	entity_hp.set_health(5)
+	animation.play("front_default")
 
 func _physics_process(delta):
 	# reset direction

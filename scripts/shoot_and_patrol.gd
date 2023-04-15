@@ -81,6 +81,7 @@ func _on_area_2d_area_entered(area):
 		slowed = true
 		prev_speed = cur_speed
 		set_cur_speed(cur_speed/100*10)
+		velocity = velocity.normalized() * cur_speed
 		await get_tree().create_timer(1.5).timeout
 		set_cur_speed(prev_speed)
 		slowed = false

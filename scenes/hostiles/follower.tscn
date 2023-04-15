@@ -1,11 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbrrstpkihfle"]
+[gd_scene load_steps=8 format=3 uid="uid://cbrrstpkihfle"]
 
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_dni5m"]
+[ext_resource type="Texture2D" uid="uid://bronyag777mqb" path="res://assets/enemies/slime.png" id="2_s5pn4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwcvw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o8e4v"]
 radius = 102.0
+
+[sub_resource type="Animation" id="Animation_xfltm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0o5do"]
+resource_name = "front_default"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eboim"]
+_data = {
+"RESET": SubResource("Animation_xfltm"),
+"front_default": SubResource("Animation_0o5do")
+}
 
 [node name="follower" type="CharacterBody2D" groups=["hostile"]]
 script = ExtResource("1_dni5m")
@@ -14,11 +54,18 @@ script = ExtResource("1_dni5m")
 shape = SubResource("RectangleShape2D_jwcvw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_s5pn4")
+hframes = 4
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_o8e4v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eboim")
+}
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
