@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvjs25l2ejo8v"]
+[gd_scene load_steps=13 format=3 uid="uid://cvjs25l2ejo8v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_b0k72"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_htm5q"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://lpqkfulbjus6" path="res://audio/9mm_short.wav" id="5_w6g80"]
 [ext_resource type="Texture2D" uid="uid://cxhrtax8ancf2" path="res://assets/UI/hp_empty.png" id="6_sorsf"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="9_o6qfg"]
+[ext_resource type="PackedScene" uid="uid://62r733bn6tgv" path="res://scenes/menu.tscn" id="10_oqc7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qwid"]
 size = Vector2(256, 256)
@@ -89,12 +90,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_o6qfg")
 
+[node name="PauseMenu" parent="." instance=ExtResource("10_oqc7y")]
+
 [connection signal="health_changed" from="." to="Marker2D/healthUI" method="_on_player_health_changed"]
 [connection signal="health_ready" from="." to="Marker2D/healthUI" method="_on_player_health_ready"]
 [connection signal="slow_down_start" from="." to="CharacterBody2D" method="_on_player_slow_down_start"]
 [connection signal="slow_down_stop" from="." to="CharacterBody2D" method="_on_player_slow_down_stop"]
 [connection signal="speed_boost_start" from="." to="CharacterBody2D" method="_on_player_speed_boost_start"]
 [connection signal="speed_boost_stop" from="." to="CharacterBody2D" method="_on_player_speed_boost_stop"]
+[connection signal="pause" from="CharacterBody2D" to="PauseMenu" method="_on_character_body_2d_pause"]
+[connection signal="unpause" from="CharacterBody2D" to="PauseMenu" method="_on_character_body_2d_unpause"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="Marker2D/Inventory" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_body_entered"]

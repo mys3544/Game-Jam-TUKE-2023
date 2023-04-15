@@ -16,6 +16,9 @@ var maxProjectilesInMagazine = 10
 var cold_pillow_check = false
 var warm_blanket_check = false
 
+signal pause
+signal unpause
+
 func read_input():
 	velocity = Vector2.ZERO
 	
@@ -38,6 +41,14 @@ func read_input():
 
 	velocity = velocity.normalized()*velocity_multiplier
 	move_and_slide()
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			if get_tree().paused:
+				unpause.emit()
+			else:				
+				pause.emit()
 
 func shoot() -> void:
 	#print("BANG")

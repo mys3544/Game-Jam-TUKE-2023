@@ -23,6 +23,8 @@ signal speed_boost_stop()
 signal slow_down_start()
 signal slow_down_stop()
 
+
+
 func _ready():
 	player_hp = Health.new()
 	health_ready.emit(player_hp.get_health(), player_hp.max_health)
