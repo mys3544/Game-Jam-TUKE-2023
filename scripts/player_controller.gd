@@ -5,7 +5,8 @@ var velocity_multiplier = 400
 
 
 @export var projectile: PackedScene
-@export var ProjectileCooldown : float 
+@export var ProjectileCooldown : float
+@export var ProjectilesInMagazine : int
 
 @onready var spawn_point: Marker2D = $SpawnPoint
 @onready var gunShot = $GunShot 
@@ -17,7 +18,7 @@ func read_input():
 	if Input.is_action_pressed("Up"):
 		velocity.y -=1
 		direction = Vector2(0, -1)
-		print("UP")
+		#print("UP")
 
 	if Input.is_action_pressed("Down"):
 		velocity.y +=1
