@@ -20,12 +20,10 @@ func pause():
 	get_tree().paused = true
 	visible = true
 
-
 func _on_character_body_2d_pause():
 	visible = true
 	animator.play("Pause")
 	get_tree().paused = true
-
 
 func _on_character_body_2d_unpause():
 	visible = false

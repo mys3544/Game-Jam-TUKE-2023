@@ -11,7 +11,6 @@ func _physics_process(delta : float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
-	pass # Replace with function body.
 
 func _on_body_entered(body):
 	for entity in self.get_overlapping_bodies():
@@ -22,6 +21,9 @@ func _on_body_entered(body):
 			if entity.entity_hp.get_health() < 1:
 				entity.die()
 			queue_free()
+		if entity.is_in_group("player"):
+			return
+	queue_free()
 
 func get_cold_pillow_check():
 	return cold_pillow_check
