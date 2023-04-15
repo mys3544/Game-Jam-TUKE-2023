@@ -5,7 +5,7 @@ extends Node2D
 
 # later change to globals maybe
 var charges = 1
-var chance = 20
+var chance = Globals.get_nightmare_counter()
 
 func _ready():
 	var enemy = null
