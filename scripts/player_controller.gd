@@ -16,9 +16,6 @@ var maxProjectilesInMagazine = 10
 var cold_pillow_check = false
 var warm_blanket_check = false
 
-var animation = get_parent().get_node("Marker2D/AnimationPlayer")
-var prev_anim = null
-
 signal pause
 signal unpause
 
