@@ -77,7 +77,7 @@ func bounce():
 	backing = false
 
 func _on_area_2d_area_entered(area):
-	if !slowed && area.is_in_group("projectile") && area.get_cold_pillow_check:
+	if !slowed && area.is_in_group("projectile") && area.get_cold_pillow_check():
 		slowed = true
 		prev_speed = cur_speed
 		set_cur_speed(cur_speed/100*10)
