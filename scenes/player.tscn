@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dstmmdvdhc2b7"]
+[gd_scene load_steps=10 format=3 uid="uid://cvjs25l2ejo8v"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_b0k72"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_htm5q"]
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="1_nd2t3"]
 [ext_resource type="PackedScene" path="res://scenes/hostiles/projectile.tscn" id="3_g5k1d"]
+[ext_resource type="Texture2D" uid="uid://lc68g1ojbgk7" path="res://assets/UI/hp_full.png" id="5_fqb7j"]
+[ext_resource type="Script" path="res://scripts/UI/healthUI.gd" id="5_nbxeq"]
+[ext_resource type="Texture2D" uid="uid://do2eyvlag4r2f" path="res://assets/UI/hp_empty.png" id="6_sorsf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qwid"]
 size = Vector2(256, 256)
@@ -34,7 +37,34 @@ position = Vector2(18, 0)
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_p13oq")
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
+remote_path = NodePath("../..")
+
+[node name="healthUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -556.0
+offset_top = -305.0
+offset_right = -360.0
+offset_bottom = -273.0
+script = ExtResource("5_nbxeq")
+
+[node name="HeartEmpty" type="TextureRect" parent="healthUI"]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("6_sorsf")
+stretch_mode = 1
+
+[node name="HeartFull" type="TextureRect" parent="healthUI"]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("5_fqb7j")
+stretch_mode = 1
+
+[connection signal="health_changed" from="." to="healthUI" method="_on_player_health_changed"]
+[connection signal="health_ready" from="." to="healthUI" method="_on_player_health_ready"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_body_entered"]

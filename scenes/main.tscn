@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dusd3ly4fin12" path="res://assets/trava.png" id="1_x8s7u"]
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="2_x4y51"]
 [ext_resource type="Texture2D" uid="uid://bmxlg8yxy3d4p" path="res://assets/stena.png" id="3_a8b4s"]
-[ext_resource type="PackedScene" uid="uid://dstmmdvdhc2b7" path="res://scenes/player.tscn" id="3_avlnp"]
+[ext_resource type="PackedScene" uid="uid://cvjs25l2ejo8v" path="res://scenes/player.tscn" id="3_avlnp"]
 [ext_resource type="PackedScene" uid="uid://cbrrstpkihfle" path="res://scenes/hostiles/follower.tscn" id="4_w6dit"]
 [ext_resource type="PackedScene" uid="uid://ch6yv8evollll" path="res://scenes/hostiles/shooter.tscn" id="5_64s88"]
 [ext_resource type="PackedScene" uid="uid://jc83qjt7l6w" path="res://scenes/hostiles/trap.tscn" id="6_h2kpc"]
