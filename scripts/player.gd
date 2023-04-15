@@ -31,19 +31,19 @@ func _physics_process(delta):
 	if speed_boost_timer > 0:
 		speed_boost_timer -= delta
 		speed_timer_check = true
-		return
+		pass
 	elif (speed_timer_check) && speed_boost_timer < 0.2:
 		speed_boost_stop.emit()
 		speed_timer_check = false
-		return
+		pass
 	if slow_down_timer > 0:
 		slow_down_timer -= delta
 		slow_timer_check = true
-		return
+		pass
 	elif (slow_timer_check) && slow_down_timer < 0.2:
 		slow_down_stop.emit()
 		slow_timer_check = false
-		return
+		pass
 
 func get_hit():
 	if !invincible:

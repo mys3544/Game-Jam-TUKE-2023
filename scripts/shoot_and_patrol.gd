@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+const Health = preload("res://scripts/health.gd")
+
+var entity_hp = null
+
 var speed = 75
 var cur_speed = speed
 var target = null
@@ -9,6 +13,9 @@ var timer = cooldown
 var m_cooldown = 60
 var m_timer = m_cooldown
 var backing = false
+
+func _ready():
+	entity_hp = Health.new()
 
 func _physics_process(delta):
 	if backing:

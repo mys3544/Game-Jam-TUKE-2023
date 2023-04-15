@@ -1,10 +1,17 @@
 extends CharacterBody2D
 
+const Health = preload("res://scripts/health.gd")
+
+var entity_hp = null
+
 var speed = 150
 var cur_speed = speed
 var direction = Vector2.ZERO
 var to_follow = null
 var backing = false
+
+func _ready():
+	entity_hp = Health.new()
 
 func _physics_process(delta):
 	# reset direction

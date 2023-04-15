@@ -1,10 +1,13 @@
 extends Node
 
-var max_health = 3 : get = get_max_health, set = set_max_health
-var health = max_health : get = get_health
+@export var max_health = 3 : get = get_max_health, set = set_max_health
+var health = max_health : get = get_health, set = set_health
 
 func get_health():
 	return health
+
+func set_health(new_hp):
+	health = new_hp
 
 func get_max_health():
 	return max_health
