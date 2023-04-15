@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn8o1uyknv04o"]
+[gd_scene load_steps=3 format=3 uid="uid://cn8o1uyknv04o"]
+
+[ext_resource type="Texture2D" uid="uid://b66mo1modfuwu" path="res://assets/items/pillow.png" id="1_06on4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_maedm"]
 custom_solver_bias = 1.0
@@ -8,3 +10,6 @@ radius = 16.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["potion"]]
 shape = SubResource("CircleShape2D_maedm")
+
+[node name="Pillow" type="Sprite2D" parent="."]
+texture = ExtResource("1_06on4")

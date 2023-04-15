@@ -154,6 +154,15 @@ script = ExtResource("7_ocykq")
 
 [node name="PauseMenu" parent="Marker2D" instance=ExtResource("10_oqc7y")]
 
+[node name="Inventory" type="Control" parent="Marker2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -555.0
+offset_top = 34.0
+offset_right = -376.0
+offset_bottom = 65.0
+script = ExtResource("9_o6qfg")
+
 [node name="healthUI" type="Control" parent="Marker2D"]
 z_as_relative = false
 layout_mode = 3
@@ -177,13 +186,6 @@ offset_right = 32.0
 offset_bottom = 32.0
 texture = ExtResource("5_fqb7j")
 stretch_mode = 1
-
-[node name="Inventory" type="Control" parent="Marker2D"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("9_o6qfg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
 position = Vector2(0, -10)

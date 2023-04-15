@@ -8,7 +8,7 @@ signal warm_blanket_item
 signal coffee_item
 
 var inventory = []
-var item_amount = [0, 0, 0, 0]
+var item_amount = [0, 0, 0, 0, 0, 0, 0]
 
 func set_effect(item):
 	match item.get_name():
@@ -33,7 +33,7 @@ func set_effect(item):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Item"):
-		if inventory.size() < 4 && !inventory.has(area):
+		if !inventory.has(area):
 			print("inv")
 			inventory.append(area)
 			item_amount[inventory.find(area)] += 1
@@ -41,6 +41,7 @@ func _on_area_2d_area_entered(area):
 		elif inventory.has(area):
 			item_amount[inventory.find(area)] += 1
 			set_effect(area)
-		for n in 4:
+		for n in 6:
 			print(item_amount[n])
+		area.queue_free()
 

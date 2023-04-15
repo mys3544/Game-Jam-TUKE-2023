@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://o2ohww781duu"]
+[gd_scene load_steps=3 format=3 uid="uid://o2ohww781duu"]
+
+[ext_resource type="Texture2D" uid="uid://bsfw2uslqppb2" path="res://assets/items/coffee.png" id="1_ynnhw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_maedm"]
 custom_solver_bias = 1.0
@@ -8,3 +10,6 @@ radius = 16.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["potion"]]
 shape = SubResource("CircleShape2D_maedm")
+
+[node name="Coffee" type="Sprite2D" parent="."]
+texture = ExtResource("1_ynnhw")

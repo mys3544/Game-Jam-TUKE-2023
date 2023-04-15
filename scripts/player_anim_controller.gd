@@ -10,7 +10,7 @@ func _unhandled_input(event):
 			n_pressed += 1
 		else:
 			n_pressed -= 1
-		print(n_pressed)
+#		print(n_pressed)
 
 func read_input():
 	if Input.is_action_pressed("Up"):
