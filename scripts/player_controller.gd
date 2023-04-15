@@ -14,6 +14,7 @@ var maxProjectilesInMagazine = 10
 @onready var ProjectileCooldownNode = $ProjectileCooldownNode
 
 var cold_pillow_check = false
+var warm_blanket_check = false
 
 func read_input():
 	velocity = Vector2.ZERO
@@ -46,6 +47,7 @@ func shoot() -> void:
 	owner.add_child(instance)
 	instance.global_transform = spawn_point.global_transform
 	instance.set_cold_pillow_check(cold_pillow_check)
+	instance.set_warm_blanket_check(warm_blanket_check)
 	ProjectilesInMagazine -= 1
 	if ProjectilesInMagazine < 1:
 		print("Reloading")
@@ -83,3 +85,6 @@ func _on_inventory_coffee_item():
 
 func _on_inventory_cold_pillow_item():
 	cold_pillow_check = true
+
+func _on_inventory_warm_blanket_item():
+	warm_blanket_check = true

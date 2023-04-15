@@ -72,3 +72,6 @@ func _on_area_2d_area_entered(area):
 		await get_tree().create_timer(1.5).timeout
 		set_cur_speed(prev_speed)
 		slowed = false
+
+func die():
+	queue_free()

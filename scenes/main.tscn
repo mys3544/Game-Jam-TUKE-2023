@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1ixn5v8pcq5k"]
+[gd_scene load_steps=22 format=3 uid="uid://b1ixn5v8pcq5k"]
 
 [ext_resource type="Texture2D" uid="uid://dusd3ly4fin12" path="res://assets/trava.png" id="1_x8s7u"]
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="2_x4y51"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bo3l16enqulge" path="res://scenes/items/slippers.tscn" id="14_cnenq"]
 [ext_resource type="PackedScene" uid="uid://o2ohww781duu" path="res://scenes/items/coffee.tscn" id="15_6c6pd"]
 [ext_resource type="PackedScene" uid="uid://cn8o1uyknv04o" path="res://scenes/items/cold_pillow.tscn" id="16_j2ndw"]
+[ext_resource type="PackedScene" uid="uid://ccse73kck4h2i" path="res://scenes/items/warm_blanket.tscn" id="17_0u5co"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvg13"]
 texture = ExtResource("1_x8s7u")
@@ -663,3 +664,6 @@ position = Vector2(113, 209)
 
 [node name="cold_pillow" parent="." instance=ExtResource("16_j2ndw")]
 position = Vector2(-182, 211)
+
+[node name="warm_blanket" parent="." instance=ExtResource("17_0u5co")]
+position = Vector2(-172, 93)

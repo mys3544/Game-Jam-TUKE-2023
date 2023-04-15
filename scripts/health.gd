@@ -1,5 +1,7 @@
 extends Node
 
+signal death
+
 @export var max_health = 3 : get = get_max_health, set = set_max_health
 var health = max_health : get = get_health, set = set_health
 

@@ -4,6 +4,7 @@ signal alarm_clock_item
 signal melatonin_item
 signal slippers_item
 signal cold_pillow_item
+signal warm_blanket_item
 signal coffee_item
 
 var inventory = []
@@ -23,6 +24,9 @@ func set_effect(item):
 		"cold_pillow":
 			print("cold_pillow")
 			cold_pillow_item.emit()
+		"warm_blanket":
+			print("warm_blanket")
+			warm_blanket_item.emit()
 		"coffee":
 			print("coffee")
 			coffee_item.emit()

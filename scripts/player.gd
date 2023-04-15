@@ -45,11 +45,16 @@ func _physics_process(delta):
 		slow_timer_check = false
 		pass
 
+func die():
+	queue_free()
+
 func get_hit():
 	if !invincible:
 		player_hp.sub_hp()
 		health_changed.emit(player_hp.get_health())
 		i_frames(i_frame_duration)
+	if player_hp.get_health() < 1:
+		die()
 	
 # area collisions (pickups/bullets/etc.)
 func _on_area_2d_area_entered(area):

@@ -103,3 +103,4 @@ script = ExtResource("9_o6qfg")
 [connection signal="cold_pillow_item" from="Marker2D/Inventory" to="CharacterBody2D" method="_on_inventory_cold_pillow_item"]
 [connection signal="melatonin_item" from="Marker2D/Inventory" to="." method="_on_inventory_melatonin_item"]
 [connection signal="slippers_item" from="Marker2D/Inventory" to="CharacterBody2D" method="_on_inventory_slippers_item"]
+[connection signal="warm_blanket_item" from="Marker2D/Inventory" to="CharacterBody2D" method="_on_inventory_warm_blanket_item"]
