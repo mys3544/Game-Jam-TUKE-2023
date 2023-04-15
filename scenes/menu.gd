@@ -13,17 +13,18 @@ func _ready():
 func unpause():
 	animator.play("Unpause")
 	get_tree().paused = false
+	visible = false
 
 func pause():
 	animator.play("Pause")
 	get_tree().paused = true
+	visible = true
 
 
 func _on_character_body_2d_pause():
 	visible = true
 	animator.play("Pause")
 	get_tree().paused = true
-	quit_button.set_disabled(false)
 
 
 func _on_character_body_2d_unpause():
