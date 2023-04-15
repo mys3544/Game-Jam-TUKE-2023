@@ -4,11 +4,17 @@ const Health = preload("res://scripts/health.gd")
 var player_hp = null
 var i_frame_duration = 1.5
 var speed_boost_timer = 0
+var slow_down_timer = 0
+var speed_timer_check = false
+var slow_timer_check = false
 # signals for UI elements
 signal health_changed(current_hp)
 signal health_ready(current_hp, max_hp)
-signal speed_boost_start(time)
+# signals for power-ups/slow-downs
+signal speed_boost_start()
 signal speed_boost_stop()
+signal slow_down_start()
+signal slow_down_stop()
 
 func _ready():
 	player_hp = Health.new()
@@ -17,8 +23,20 @@ func _ready():
 func _physics_process(delta):
 	if speed_boost_timer > 0:
 		speed_boost_timer -= delta
-	else:
+		speed_timer_check = true
+		return
+	elif (speed_timer_check) && speed_boost_timer < 0.1:
 		speed_boost_stop.emit()
+		speed_timer_check = false
+		return
+	if slow_down_timer > 0:
+		slow_down_timer -= delta
+		slow_timer_check = true
+		return
+	elif (slow_timer_check) && slow_down_timer < 0.1:
+		slow_down_stop.emit()
+		slow_timer_check = false
+		return
 
 func get_hit():
 	player_hp.sub_hp()
@@ -31,9 +49,12 @@ func _on_area_2d_area_entered(area):
 		health_changed.emit(player_hp.get_health())
 	elif area.is_in_group("hostile"):
 		get_hit()
-	elif area.is_in_group("speed_boost"):
+	elif area.is_in_group("speed_boost") && slow_down_timer < 0.1:
 		speed_boost_start.emit()
 		speed_boost_timer += 5
+	elif area.is_in_group("slow_down") && speed_boost_timer < 0.1:
+		slow_down_start.emit()
+		slow_down_timer += 5
 
 # character collisions (enemies)
 func _on_area_2d_body_entered(body):
