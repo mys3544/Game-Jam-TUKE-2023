@@ -48,6 +48,7 @@ func _physics_process(delta):
 		pass
 
 func die():
+	kill.emit()
 	queue_free()
 
 func get_hit():

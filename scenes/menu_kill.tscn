@@ -134,7 +134,7 @@ _data = {
 "Unpause": SubResource("Animation_cr7jj")
 }
 
-[node name="PauseMenu" type="ColorRect"]
+[node name="KillMenu" type="ColorRect"]
 process_mode = 3
 material = SubResource("ShaderMaterial_i6c8r")
 anchors_preset = 15
