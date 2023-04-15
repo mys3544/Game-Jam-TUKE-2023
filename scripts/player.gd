@@ -69,6 +69,7 @@ func _on_area_2d_area_entered(area):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("hostile"):
 		get_hit()
+		body.bounce()
 
 func i_frames(duration):
 	invincible = true

@@ -1,14 +1,18 @@
 extends CharacterBody2D
 
 var speed = 75
+var cur_speed = speed
 var target = null
 const bullet_obj = preload("res://scenes/hostiles/enemy_bullet.tscn")
 const cooldown = 120
 var timer = cooldown
 var m_cooldown = 60
 var m_timer = m_cooldown
+var backing = false
 
 func _physics_process(delta):
+	if backing:
+		move_and_slide()
 	# prevent bullet spam
 	if timer < 0:
 		# if there is target
@@ -51,3 +55,9 @@ func shoot():
 
 func change_dir():
 	velocity = Vector2(speed, 0).rotated(randf() * 2.0 * PI)
+
+func bounce():
+	velocity = position.direction_to(target.get_global_position()) * cur_speed * -1
+	backing = true
+	await get_tree().create_timer(0.5).timeout
+	backing = false
