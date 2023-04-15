@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://ds410a78iht1b"]
 
 [ext_resource type="Script" path="res://scripts/projectile.gd" id="1_kryyy"]
 [ext_resource type="Texture2D" uid="uid://sj0tdvvy5qey" path="res://icon.svg" id="1_lvkwd"]
