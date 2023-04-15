@@ -22,7 +22,7 @@ signal speed_boost_start()
 signal speed_boost_stop()
 signal slow_down_start()
 signal slow_down_stop()
-
+signal kill
 
 
 func _ready():
