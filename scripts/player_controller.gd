@@ -43,6 +43,7 @@ func shoot() -> void:
 	instance.global_transform = spawn_point.global_transform
 	ProjectilesInMagazine -= 1
 	if ProjectilesInMagazine < 1:
+		print("Reloading")
 		ProjectileCooldownNode.start(3)
 		ProjectilesInMagazine = 10
 	
