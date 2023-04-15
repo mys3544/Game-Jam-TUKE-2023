@@ -28,6 +28,7 @@ signal kill
 func _ready():
 	player_hp = Health.new()
 	health_ready.emit(player_hp.get_health(), player_hp.max_health)
+	
 
 func _physics_process(delta):
 	if speed_boost_timer > 0:
@@ -49,7 +50,6 @@ func _physics_process(delta):
 
 func die():
 	kill.emit()
-	
 	#queue_free()
 
 func get_hit():
