@@ -53,11 +53,21 @@ func _on_area_2d_body_exited(body):
 func shoot():
 	# instantiate object
 	var bullet = bullet_obj.instantiate()
+	var bullet_l = bullet_obj.instantiate()
+	var bullet_r = bullet_obj.instantiate()
 	get_parent().add_child(bullet)
+	get_parent().add_child(bullet_l)
+	get_parent().add_child(bullet_r)
 	# set starting position
 	bullet.position = position + (position.direction_to(target.get_global_position()) * 30)
+	bullet_l.position = position + (position.direction_to(target.get_global_position()) * 30)
+	bullet_r.position = position + (position.direction_to(target.get_global_position()) * 30)
 	# set direction
 	bullet.look_at(target.get_global_position())
+	bullet_l.look_at(target.get_global_position())
+	bullet_l.rotation += PI/5
+	bullet_r.look_at(target.get_global_position())
+	bullet_r.rotation -= PI/5
 
 func change_dir():
 	velocity = Vector2(speed, 0).rotated(randf() * 2.0 * PI)

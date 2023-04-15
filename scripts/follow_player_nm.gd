@@ -3,7 +3,7 @@ extends CharacterBody2D
 const Health = preload("res://scripts/health.gd")
 var entity_hp = null
 
-var speed = 150
+var speed = 200
 var cur_speed = speed
 var direction = Vector2.ZERO
 var to_follow = null
@@ -11,6 +11,8 @@ var backing = false
 
 func _ready():
 	entity_hp = Health.new()
+	entity_hp.set_max_health(5)
+	entity_hp.set_health(5)
 
 func _physics_process(delta):
 	# reset direction
@@ -36,6 +38,5 @@ func _on_area_2d_body_exited(body):
 func bounce():
 	direction *= -1
 	backing = true
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.25).timeout
 	backing = false
-	

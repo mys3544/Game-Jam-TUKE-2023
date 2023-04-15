@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ps2lk72108oa"]
+
+[ext_resource type="PackedScene" uid="uid://cbrrstpkihfle" path="res://scenes/hostiles/follower.tscn" id="1_is7a1"]
+[ext_resource type="Script" path="res://scripts/follow_player_nm.gd" id="2_dr1bp"]
+
+[node name="follower" instance=ExtResource("1_is7a1")]
+script = ExtResource("2_dr1bp")

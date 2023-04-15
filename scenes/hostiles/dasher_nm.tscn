@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckyqwmdpqea1"]
+
+[ext_resource type="PackedScene" uid="uid://dt341vfhypg46" path="res://scenes/hostiles/dasher.tscn" id="1_6vktt"]
+[ext_resource type="Script" path="res://scenes/hostiles/dasher_nm.gd" id="2_74u7d"]
+
+[node name="dasher" instance=ExtResource("1_6vktt")]
+script = ExtResource("2_74u7d")

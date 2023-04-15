@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqcrh0qprh0d0"]
+
+[ext_resource type="PackedScene" uid="uid://ch6yv8evollll" path="res://scenes/hostiles/shooter.tscn" id="1_w0vxx"]
+[ext_resource type="Script" path="res://scripts/shoot_and_patrol_nm.gd" id="2_581jy"]
+
+[node name="shooter" instance=ExtResource("1_w0vxx")]
+script = ExtResource("2_581jy")
