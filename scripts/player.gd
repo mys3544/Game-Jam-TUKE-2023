@@ -32,7 +32,7 @@ func _physics_process(delta):
 		speed_boost_timer -= delta
 		speed_timer_check = true
 		return
-	elif (speed_timer_check) && speed_boost_timer < 0.1:
+	elif (speed_timer_check) && speed_boost_timer < 0.2:
 		speed_boost_stop.emit()
 		speed_timer_check = false
 		return
@@ -40,7 +40,7 @@ func _physics_process(delta):
 		slow_down_timer -= delta
 		slow_timer_check = true
 		return
-	elif (slow_timer_check) && slow_down_timer < 0.1:
+	elif (slow_timer_check) && slow_down_timer < 0.2:
 		slow_down_stop.emit()
 		slow_timer_check = false
 		return
@@ -75,3 +75,7 @@ func i_frames(duration):
 	invincible = true
 	await get_tree().create_timer(duration).timeout
 	invincible = false
+
+func _on_inventory_melatonin_item():
+	player_hp.set_max_health(player_hp.get_max_health() + 1)
+	health_ready.emit(player_hp.get_health(), player_hp.get_max_health())

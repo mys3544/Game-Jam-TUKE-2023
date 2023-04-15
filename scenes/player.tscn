@@ -98,3 +98,7 @@ script = ExtResource("9_o6qfg")
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="Marker2D/Inventory" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="alarm_clock_item" from="Marker2D/Inventory" to="CharacterBody2D" method="_on_inventory_alarm_clock_item"]
+[connection signal="coffee_item" from="Marker2D/Inventory" to="CharacterBody2D" method="_on_inventory_coffee_item"]
+[connection signal="melatonin_item" from="Marker2D/Inventory" to="." method="_on_inventory_melatonin_item"]
+[connection signal="slippers_item" from="Marker2D/Inventory" to="CharacterBody2D" method="_on_inventory_slippers_item"]

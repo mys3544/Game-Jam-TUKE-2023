@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 var direction : Vector2 = Vector2()
+var prev_velocity_multiplier = 0
 var velocity_multiplier = 400
 
 @export var projectile: PackedScene
 @export var ProjectileCooldown : float
 @export var ProjectilesInMagazine : int
+var maxProjectilesInMagazine = 10
 
 @onready var spawn_point: Marker2D = $SpawnPoint
 @onready var gunShot = $GunShot 
@@ -45,7 +47,7 @@ func shoot() -> void:
 	if ProjectilesInMagazine < 1:
 		print("Reloading")
 		ProjectileCooldownNode.start(3)
-		ProjectilesInMagazine = 10
+		ProjectilesInMagazine = maxProjectilesInMagazine
 	
 func _physics_process(delta):
 	read_input()
@@ -54,13 +56,24 @@ func _physics_process(delta):
 		shoot()
 
 func _on_player_speed_boost_start():
-	velocity_multiplier = 550
+	prev_velocity_multiplier = velocity_multiplier
+	velocity_multiplier = 1000
 
 func _on_player_speed_boost_stop():
-	velocity_multiplier = 400
+	velocity_multiplier = prev_velocity_multiplier
 
 func _on_player_slow_down_start():
-	velocity_multiplier = 250
+	prev_velocity_multiplier = velocity_multiplier
+	velocity_multiplier = 150
 
 func _on_player_slow_down_stop():
-	velocity_multiplier = 400
+	velocity_multiplier = prev_velocity_multiplier
+
+func _on_inventory_alarm_clock_item():
+	velocity_multiplier += velocity_multiplier/100*5
+
+func _on_inventory_slippers_item():
+	maxProjectilesInMagazine += 1
+
+func _on_inventory_coffee_item():
+	ProjectileCooldown -= ProjectileCooldown/100*5

@@ -1,10 +1,16 @@
 extends Node
 
-const max_health = 3
+var max_health = 3 : get = get_max_health, set = set_max_health
 var health = max_health : get = get_health
 
 func get_health():
 	return health
+
+func get_max_health():
+	return max_health
+	
+func set_max_health(new_max):
+	max_health = new_max
 
 func add_hp():
 	if health < max_health:

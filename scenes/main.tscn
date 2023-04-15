@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1ixn5v8pcq5k"]
+[gd_scene load_steps=20 format=3 uid="uid://b1ixn5v8pcq5k"]
 
 [ext_resource type="Texture2D" uid="uid://dusd3ly4fin12" path="res://assets/trava.png" id="1_x8s7u"]
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="2_x4y51"]
@@ -11,6 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://c5k2fah53ndsb" path="res://scenes/power_ups/potion.tscn" id="9_qrlfc"]
 [ext_resource type="PackedScene" uid="uid://qv6spxgyo6qi" path="res://scenes/power_ups/speed_boost.tscn" id="10_710yu"]
 [ext_resource type="PackedScene" uid="uid://draj8h530c30f" path="res://scenes/hostiles/slow_down.tscn" id="11_gmqfm"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://blgty6j0tgusg" path="res://scenes/items/alarm_clock.tscn" id="12_uw2kl"]
+[ext_resource type="PackedScene" uid="uid://dn2r57jk0ulpc" path="res://scenes/items/melatonin.tscn" id="13_scjd2"]
+[ext_resource type="PackedScene" uid="uid://bo3l16enqulge" path="res://scenes/items/slippers.tscn" id="14_cnenq"]
+[ext_resource type="PackedScene" uid="uid://o2ohww781duu" path="res://scenes/items/coffee.tscn" id="15_6c6pd"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvg13"]
 texture = ExtResource("1_x8s7u")
@@ -643,3 +650,15 @@ position = Vector2(-172, 24)
 
 [node name="slow_down" parent="." instance=ExtResource("11_gmqfm")]
 position = Vector2(-177, -37)
+
+[node name="alarm_clock" parent="." instance=ExtResource("12_uw2kl")]
+position = Vector2(-115, 209)
+
+[node name="melatonin" parent="." instance=ExtResource("13_scjd2")]
+position = Vector2(34, 210)
+
+[node name="slippers" parent="." instance=ExtResource("14_cnenq")]
+position = Vector2(-46, 209)
+
+[node name="coffee" parent="." instance=ExtResource("15_6c6pd")]
+position = Vector2(113, 209)
