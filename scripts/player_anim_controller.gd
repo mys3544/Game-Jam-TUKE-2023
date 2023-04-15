@@ -10,7 +10,6 @@ func _unhandled_input(event):
 			n_pressed += 1
 		else:
 			n_pressed -= 1
-#		print(n_pressed)
 
 func read_input():
 	if Input.is_action_pressed("Up"):
@@ -35,3 +34,5 @@ func _physics_process(_delta):
 	if n_pressed < 1:
 		animation.stop()
 		prev_anim = null
+	if get_parent().get_child(0).velocity == Vector2(0, 0):
+		n_pressed = 0
