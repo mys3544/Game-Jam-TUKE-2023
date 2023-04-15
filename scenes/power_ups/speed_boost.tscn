@@ -4,7 +4,7 @@
 custom_solver_bias = 1.0
 radius = 16.0
 
-[node name="speed_up" type="Area2D" groups=["speed_up"]]
+[node name="speed_boost" type="Area2D" groups=["speed_boost"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["potion"]]
 shape = SubResource("CircleShape2D_maedm")

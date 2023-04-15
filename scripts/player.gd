@@ -3,18 +3,27 @@ extends Node
 const Health = preload("res://scripts/health.gd")
 var player_hp = null
 var i_frame_duration = 1.5
+var speed_boost_timer = 0
 # signals for UI elements
 signal health_changed(current_hp)
 signal health_ready(current_hp, max_hp)
+signal speed_boost_start(time)
+signal speed_boost_stop()
 
 func _ready():
 	player_hp = Health.new()
 	health_ready.emit(player_hp.get_health(), player_hp.max_health)
 
+func _physics_process(delta):
+	if speed_boost_timer > 0:
+		speed_boost_timer -= delta
+	else:
+		speed_boost_stop.emit()
+
 func get_hit():
 	player_hp.sub_hp()
 	health_changed.emit(player_hp.get_health())
-
+	
 # area collisions (pickups/bullets/etc.)
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("potion"):
@@ -22,6 +31,9 @@ func _on_area_2d_area_entered(area):
 		health_changed.emit(player_hp.get_health())
 	elif area.is_in_group("hostile"):
 		get_hit()
+	elif area.is_in_group("speed_boost"):
+		speed_boost_start.emit()
+		speed_boost_timer += 5
 
 # character collisions (enemies)
 func _on_area_2d_body_entered(body):

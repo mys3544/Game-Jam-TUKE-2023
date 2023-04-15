@@ -28,3 +28,4 @@ func _on_player_health_changed(current_hp):
 func _on_player_health_ready(current_hp, max_hp):
 	set_max_hearts(max_hp)
 	set_hearts(current_hp)
+
