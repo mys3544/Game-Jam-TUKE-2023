@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://draj8h530c30f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_maedm"]
+custom_solver_bias = 1.0
+radius = 16.0
+
+[node name="slow_down" type="Area2D" groups=["slow_down"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["potion"]]
+shape = SubResource("CircleShape2D_maedm")

@@ -44,3 +44,9 @@ func _on_player_speed_boost_start():
 
 func _on_player_speed_boost_stop():
 	velocity_multiplier = 400
+
+func _on_player_slow_down_start():
+	velocity_multiplier = 250
+
+func _on_player_slow_down_stop():
+	velocity_multiplier = 400

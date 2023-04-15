@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_b0k72"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="1_htm5q"]
 [ext_resource type="Texture2D" uid="uid://bxhhqdqvyiuhj" path="res://assets/voda.png" id="1_nd2t3"]
-[ext_resource type="PackedScene" uid="uid://ds410a78iht1b" path="res://scenes/hostiles/projectile.tscn" id="3_g5k1d"]
+[ext_resource type="PackedScene" path="res://scenes/hostiles/projectile.tscn" id="3_g5k1d"]
 [ext_resource type="Texture2D" uid="uid://yejbx0lj6lst" path="res://assets/UI/hp_full.png" id="5_fqb7j"]
 [ext_resource type="Script" path="res://scripts/UI/healthUI.gd" id="5_nbxeq"]
 [ext_resource type="Texture2D" uid="uid://cxhrtax8ancf2" path="res://assets/UI/hp_empty.png" id="6_sorsf"]
@@ -73,6 +73,8 @@ stretch_mode = 1
 
 [connection signal="health_changed" from="." to="Marker2D/healthUI" method="_on_player_health_changed"]
 [connection signal="health_ready" from="." to="Marker2D/healthUI" method="_on_player_health_ready"]
+[connection signal="slow_down_start" from="." to="CharacterBody2D" method="_on_player_slow_down_start"]
+[connection signal="slow_down_stop" from="." to="CharacterBody2D" method="_on_player_slow_down_stop"]
 [connection signal="speed_boost_start" from="." to="CharacterBody2D" method="_on_player_speed_boost_start"]
 [connection signal="speed_boost_stop" from="." to="CharacterBody2D" method="_on_player_speed_boost_stop"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_area_entered"]
