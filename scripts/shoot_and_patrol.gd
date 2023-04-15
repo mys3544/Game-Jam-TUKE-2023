@@ -68,7 +68,7 @@ func shoot():
 	bullet.look_at(target.get_global_position())
 
 func change_dir():
-	velocity = Vector2(speed, 0).rotated(randf() * 2.0 * PI)
+	velocity = Vector2(cur_speed, 0).rotated(randf() * 2.0 * PI)
 
 func bounce():
 	velocity = position.direction_to(target.get_global_position()) * cur_speed * -1
