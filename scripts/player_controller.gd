@@ -10,7 +10,7 @@ var velocity_multiplier = 200
 var maxProjectilesInMagazine = 10
 
 @onready var spawn_point: Marker2D = $SpawnPoint
-@onready var gunShot = $GunShot 
+@onready var gunShot = $GunShot
 @onready var ProjectileCooldownNode = $ProjectileCooldownNode
 
 var cold_pillow_check = false

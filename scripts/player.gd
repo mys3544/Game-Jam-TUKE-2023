@@ -25,6 +25,7 @@ signal slow_down_start()
 signal slow_down_stop()
 signal kill
 
+@onready var hurtSound = $CharacterBody2D/HurtSound
 
 func _ready():
 	player_hp = Health.new()
@@ -55,6 +56,7 @@ func die():
 
 func get_hit():
 	if !invincible:
+		hurtSound.play()
 		player_hp.sub_hp()
 		health_changed.emit(player_hp.get_health())
 		i_frames(i_frame_duration)
