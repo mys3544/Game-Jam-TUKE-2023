@@ -6,9 +6,10 @@ var n_pressed = 0
 
 func _unhandled_input(event):
 	if event is InputEventKey and !event.is_echo():
-		if event.pressed:
+		if event.pressed and event.keycode != KEY_ESCAPE:
 			n_pressed += 1
-		else:
+			print("+")
+		elif event.keycode != KEY_ESCAPE:
 			n_pressed -= 1
 
 func read_input():
@@ -34,5 +35,3 @@ func _physics_process(_delta):
 	if n_pressed < 1:
 		animation.stop()
 		prev_anim = null
-	if get_parent().get_child(0).velocity == Vector2(0, 0):
-		n_pressed = 0
