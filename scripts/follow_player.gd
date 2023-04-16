@@ -10,7 +10,7 @@ var direction = Vector2.ZERO
 var to_follow = null
 var backing = false
 var slowed = false
-
+@onready var Dead = $Dead
 @onready var animation = $AnimationPlayer
 
 func get_cur_speed():
@@ -60,4 +60,7 @@ func _on_area_2d_area_entered(area):
 		slowed = false
 
 func die():
+	Dead.play()
+	speed = 0
+	await get_tree().create_timer(1).timeout
 	queue_free()

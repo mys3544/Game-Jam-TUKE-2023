@@ -1,13 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt341vfhypg46"]
+[gd_scene load_steps=10 format=3 uid="uid://dt341vfhypg46"]
 
 [ext_resource type="Script" path="res://scripts/dasher.gd" id="1_wi8if"]
 [ext_resource type="Texture2D" uid="uid://dn1pwaqj8dsvs" path="res://assets/enemies/snek.png" id="2_ajlay"]
+[ext_resource type="AudioStream" uid="uid://b8hv3g7q4qlpe" path="res://audio/dead.wav" id="3_gbn0m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ocjl"]
 size = Vector2(21, 21)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s36db"]
 radius = 181.003
+
+[sub_resource type="Animation" id="Animation_7s8yi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_m3yci"]
 resource_name = "default_left"
@@ -25,21 +41,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_7s8yi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_j50wa"]
@@ -87,6 +88,9 @@ shape = SubResource("CircleShape2D_s36db")
 libraries = {
 "": SubResource("AnimationLibrary_62qvr")
 }
+
+[node name="Dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gbn0m")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

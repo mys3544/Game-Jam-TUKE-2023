@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbrrstpkihfle"]
+[gd_scene load_steps=9 format=3 uid="uid://cbrrstpkihfle"]
 
 [ext_resource type="Script" path="res://scripts/follow_player.gd" id="1_dni5m"]
 [ext_resource type="Texture2D" uid="uid://bronyag777mqb" path="res://assets/enemies/slime.png" id="2_s5pn4"]
+[ext_resource type="AudioStream" uid="uid://b8hv3g7q4qlpe" path="res://audio/dead.wav" id="3_akqxc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwcvw"]
 
@@ -66,6 +67,9 @@ shape = SubResource("CircleShape2D_o8e4v")
 libraries = {
 "": SubResource("AnimationLibrary_eboim")
 }
+
+[node name="Dead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_akqxc")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

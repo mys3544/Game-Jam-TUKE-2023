@@ -19,6 +19,7 @@ var dashes = 2
 var backing = false
 var slowed = false
 
+@onready var Dead = $Dead
 @onready var animation = $AnimationPlayer
 var prev_anim = null
 
@@ -88,6 +89,9 @@ func _on_area_2d_area_entered(area):
 		slowed = false
 		
 func die():
+	Dead.play()
+	speed = 0
+	await get_tree().create_timer(1).timeout
 	queue_free()
 
 func change_anim(new):
