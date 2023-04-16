@@ -94,4 +94,5 @@ func die():
 	Dead.play()
 	speed = 0
 	await get_tree().create_timer(1).timeout
+	GlobalVariables.set_kills(1)
 	queue_free()

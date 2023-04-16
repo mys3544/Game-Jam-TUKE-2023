@@ -1,0 +1,226 @@
+[gd_scene load_steps=7 format=3 uid="uid://bo3vm8hcnncda"]
+
+[ext_resource type="Script" path="res://scenes/end_title.gd" id="1_8xxyj"]
+[ext_resource type="Texture2D" uid="uid://dqyh0slemk7sj" path="res://assets/bridges.png" id="1_glb64"]
+[ext_resource type="Texture2D" uid="uid://bk6py14ef1m3d" path="res://assets/bed_split_outro.png" id="1_ytbw6"]
+[ext_resource type="Texture2D" uid="uid://cwd1bph7evntp" path="res://assets/walkcycle_dressed.png" id="2_eo1ln"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d8o0x"]
+texture = ExtResource("1_glb64")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+0:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fvcgb"]
+sources/0 = SubResource("TileSetAtlasSource_d8o0x")
+
+[node name="end_title" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = ExtResource("1_8xxyj")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(0, -67)
+tile_set = SubResource("TileSet_fvcgb")
+cell_quadrant_size = 32
+format = 2
+layer_0/tile_data = PackedInt32Array(196606, 589824, 9, 196607, 589824, 9, 131072, 589824, 9, 131073, 589824, 9, 196605, 524288, 8, 131074, 720896, 8, 196610, 720896, 8, 262141, 524288, 8, 262146, 720896, 8, 327676, 589824, 9, 327677, 589824, 8, 327675, 524288, 8, 393211, 524288, 8, 393212, 589824, 9, 393213, 589824, 9, 458747, 524288, 8, 458748, 589824, 9, 458749, 589824, 9, 524285, 524288, 8, 589822, 524288, 8, 589823, 589824, 9, 524288, 589824, 9, 524289, 720896, 8, 458754, 589824, 9, 393218, 589824, 9, 327682, 589824, 9, 327683, 589824, 9, 393219, 589824, 9, 393220, 720896, 8, 458756, 720896, 8, 327684, 720896, 8, 458755, 589824, 9, 196609, 589824, 9, 196608, 589824, 9, 262143, 589824, 9, 262142, 589824, 9, 327678, 589824, 8, 327679, 589824, 9, 262144, 589824, 9, 262145, 589824, 9, 327681, 589824, 9, 327680, 589824, 9, 393215, 589824, 9, 393214, 589824, 9, 458750, 589824, 9, 458751, 589824, 9, 393216, 589824, 9, 393217, 589824, 9, 458753, 589824, 9, 458752, 589824, 9, 524287, 589824, 9, 524286, 589824, 9)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 21)
+texture = ExtResource("1_ytbw6")
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("2_eo1ln")
+hframes = 9
+vframes = 4
+frame = 23
+
+[node name="Camera2D" type="Camera2D" parent="Sprite2D2"]
+position = Vector2(0, -70)
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(0, 21)
+texture = ExtResource("1_ytbw6")
+hframes = 2
+frame = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+offset_bottom = -96.0
+color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -200.0
+offset_right = 73.0
+offset_bottom = -166.0
+theme_override_font_sizes/font_size = 22
+text = "You Woke Up"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -160.0
+offset_right = 73.0
+offset_bottom = -128.0
+theme_override_font_sizes/font_size = 16
+text = "You have slept for:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = -100.0
+offset_top = -133.0
+offset_right = 100.0
+offset_bottom = -97.0
+theme_override_font_sizes/font_size = 22
+text = "X hours"
+horizontal_alignment = 1
+vertical_alignment = 1

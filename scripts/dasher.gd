@@ -86,6 +86,7 @@ func die():
 	Dead.play()
 	velocity = Vector2(0,0)
 	await get_tree().create_timer(1).timeout
+	GlobalVariables.set_kills(1)
 	queue_free()
 
 func change_anim(new):

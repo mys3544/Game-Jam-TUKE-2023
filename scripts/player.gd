@@ -76,7 +76,7 @@ func _on_area_2d_area_entered(area):
 		slow_down_timer += 5
 	elif area.is_in_group("bed") && bed_ready:
 		print("Win")
-		kill.emit()
+		get_tree().change_scene_to_file("res://scenes/end_title.tscn")
 
 # character collisions (enemies)
 func _on_area_2d_body_entered(body):
