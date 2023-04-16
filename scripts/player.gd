@@ -75,7 +75,7 @@ func _on_area_2d_area_entered(area):
 		slow_down_start.emit()
 		slow_down_timer += 5
 	elif area.is_in_group("bed") && bed_ready:
-		print(bed_ready)
+		print("Win")
 		kill.emit()
 
 # character collisions (enemies)
