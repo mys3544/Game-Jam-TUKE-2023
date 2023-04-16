@@ -15,4 +15,3 @@ func _ready():
 		else:
 			enemy = normal.instantiate()
 	self.add_child(enemy)
-	enemy.position = global_position
