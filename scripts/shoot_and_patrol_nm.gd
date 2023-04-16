@@ -71,9 +71,9 @@ func shoot():
 	get_parent().add_child(bullet_l)
 	get_parent().add_child(bullet_r)
 	# set starting position
-	bullet.position = position + (position.direction_to(target.get_global_position()) * 30)
-	bullet_l.position = position + (position.direction_to(target.get_global_position()) * 30)
-	bullet_r.position = position + (position.direction_to(target.get_global_position()) * 30)
+	bullet.global_position = global_position + (global_position.direction_to(target.get_global_position()) * 30)
+	bullet_l.global_position = global_position + (global_position.direction_to(target.get_global_position()) * 30)
+	bullet_r.global_position = global_position + (global_position.direction_to(target.get_global_position()) * 30)
 	# set direction
 	bullet.look_at(target.get_global_position())
 	bullet_l.look_at(target.get_global_position())
@@ -85,7 +85,7 @@ func change_dir():
 	velocity = Vector2(speed, 0).rotated(randf() * 2.0 * PI)
 
 func bounce():
-	velocity = position.direction_to(target.get_global_position()) * cur_speed * -1
+	velocity = global_position.direction_to(target.get_global_position()) * cur_speed * -1
 	backing = true
 	await get_tree().create_timer(0.5).timeout
 	backing = false

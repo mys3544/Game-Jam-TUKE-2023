@@ -67,7 +67,7 @@ func shoot():
 	var bullet = bullet_obj.instantiate()
 	get_parent().add_child(bullet)
 	# set starting position
-	bullet.position = position + (position.direction_to(target.get_global_position()) * 30)
+	bullet.global_position = global_position + (global_position.direction_to(target.get_global_position()) * 30)
 	# set direction
 	bullet.look_at(target.get_global_position())
 
@@ -75,7 +75,7 @@ func change_dir():
 	velocity = Vector2(cur_speed, 0).rotated(randf() * 2.0 * PI)
 
 func bounce():
-	velocity = position.direction_to(target.get_global_position()) * cur_speed * -1
+	velocity = global_position.direction_to(target.get_global_position()) * cur_speed * -1
 	backing = true
 	await get_tree().create_timer(0.5).timeout
 	backing = false

@@ -33,7 +33,7 @@ func _physics_process(delta):
 	# if player is spotted
 		if to_follow:
 			# set new direction
-			direction = position.direction_to(to_follow.get_global_position()) * cur_speed
+			direction = global_position.direction_to(to_follow.get_global_position()) * cur_speed
 	# move set direction
 	velocity = direction
 	move_and_slide()

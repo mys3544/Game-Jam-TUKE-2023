@@ -38,7 +38,7 @@ func _physics_process(delta):
 		# if player is spotted
 		if to_follow:
 			# set new direction
-			direction = position.direction_to(to_follow.get_global_position())
+			direction = global_position.direction_to(to_follow.get_global_position())
 			# dash if able
 			if d_timer < 0:
 				cur_speed = d_speed

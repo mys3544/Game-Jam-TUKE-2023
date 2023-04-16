@@ -8,7 +8,6 @@ func _unhandled_input(event):
 	if event is InputEventKey and !event.is_echo():
 		if event.pressed and event.keycode != KEY_ESCAPE:
 			n_pressed += 1
-			print("+")
 		elif event.keycode != KEY_ESCAPE:
 			n_pressed -= 1
 
