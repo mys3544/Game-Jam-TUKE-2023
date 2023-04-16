@@ -6,6 +6,8 @@ var speed : float = 25.0 : get = get_speed, set = set_speed
 var cold_pillow_check = false : get = get_cold_pillow_check, set = set_cold_pillow_check
 var warm_blanket_check = false : get = get_warm_blanket_check, set = set_warm_blanket_check
 
+@onready var hitSound = $Hit
+
 func _physics_process(delta : float) -> void:
 	position += global_transform.x * speed
 
@@ -20,6 +22,8 @@ func _on_body_entered(body):
 				entity.entity_hp.sub_hp()
 			if entity.entity_hp.get_health() < 1:
 				entity.die()
+			hitSound.play()
+			#await get_tree().create_timer(0.1).timeout
 			queue_free()
 		if entity.is_in_group("player"):
 			return
