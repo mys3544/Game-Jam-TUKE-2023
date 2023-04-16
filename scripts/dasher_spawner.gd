@@ -15,4 +15,4 @@ func _ready():
 		else:
 			enemy = normal.instantiate()
 		self.add_child(enemy)
-		await get_tree().create_timer(90).timeout
+		await get_tree().create_timer(30).timeout
