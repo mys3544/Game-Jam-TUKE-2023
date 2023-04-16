@@ -9,9 +9,10 @@ var chance = GlobalVariables.get_nightmare_counter()
 
 func _ready():
 	var enemy = null
-	for i in range(charges):
+	while true:
 		if randi() % 100 < chance:
 			enemy = nightmare.instantiate()
 		else:
 			enemy = normal.instantiate()
-	self.add_child(enemy)
+		self.add_child(enemy)
+		await get_tree().create_timer(90).timeout

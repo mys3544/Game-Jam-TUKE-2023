@@ -224,3 +224,13 @@ theme_override_font_sizes/font_size = 22
 text = "X hours"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -90.0
+offset_right = 72.0
+offset_bottom = -59.0
+text = "Go Back to Sleep?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

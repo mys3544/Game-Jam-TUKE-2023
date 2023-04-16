@@ -14,4 +14,5 @@ func _ready():
 			enemy = nightmare.instantiate()
 		else:
 			enemy = normal.instantiate()
-	self.add_child(enemy)
+		self.add_child(enemy)
+		await get_tree().create_timer(90).timeout

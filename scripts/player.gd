@@ -51,7 +51,8 @@ func _physics_process(delta):
 		pass
 
 func die():
-	kill.emit()
+	get_tree().change_scene_to_file("res://scenes/end_title.tscn")
+	#kill.emit()
 	#queue_free()
 
 func get_hit():
@@ -93,6 +94,7 @@ func i_frames(duration):
 
 func _on_inventory_melatonin_item():
 	player_hp.set_max_health(player_hp.get_max_health() + 1)
+	player_hp.set_health(player_hp.get_health() + 1)
 	health_ready.emit(player_hp.get_health(), player_hp.get_max_health())
 
 func _on_bed_bed_ready():

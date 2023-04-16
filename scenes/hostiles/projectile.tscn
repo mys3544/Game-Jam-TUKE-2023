@@ -1,23 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3m5djnxbsxcn"]
 
 [ext_resource type="Script" path="res://scripts/projectile.gd" id="1_kryyy"]
-[ext_resource type="Texture2D" uid="uid://sj0tdvvy5qey" path="res://icon.svg" id="1_lvkwd"]
+[ext_resource type="Texture2D" uid="uid://c2njut78f6jvt" path="res://assets/bullet_player.png" id="2_va2nw"]
 [ext_resource type="AudioStream" uid="uid://2oh7y3aw0i64" path="res://audio/hit.wav" id="3_flori"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7slg"]
+radius = 4.0
 
 [node name="Projectile" type="Area2D" groups=["projectile"]]
 script = ExtResource("1_kryyy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.144, 0.144)
-texture = ExtResource("1_lvkwd")
+texture = ExtResource("2_va2nw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m7slg")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.35, 0.35)
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_flori")
