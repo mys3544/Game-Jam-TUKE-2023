@@ -10,3 +10,8 @@ func _physics_process(delta):
 		empty = true
 		print(empty)
 	pass
+
+func _on_body_entered(body):	
+		if body.is_in_group("player"):
+			print("Win")
+			return

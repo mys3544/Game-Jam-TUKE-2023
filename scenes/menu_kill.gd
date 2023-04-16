@@ -11,7 +11,7 @@ func _ready():
 	visible = false
 
 func restart():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/level2.tscn")
 	animator.play("Unpause")
 	get_tree().paused = false
 	visible = false
